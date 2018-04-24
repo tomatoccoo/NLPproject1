@@ -80,13 +80,6 @@ def generate_name_file(dir, name):
                 out.append(fname)
         f.write('\n'.join(out))
 
-def out_abstrac_tensor_to_words(output, SIZE, wvmodel):
-    result = []
-    for i in range(SIZE.abs_sentence):
-        for j in range(SIZE.words):
-            vector = output.numpy[:,i,j]
-            result.append(wvmodel.similar_by_vector(vector))
-
 
 if __name__ == '__main__':
     w2vmodel = gensim.models.Word2Vec.load('./word2vec/cnn_word2vec')
